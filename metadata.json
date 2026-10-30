@@ -1,0 +1,6 @@
+{
+  "name": "Magra 7D - Dra. Mari Ferri",
+  "description": "Landing page de alta conversão do evento online Magra 7D da nutricionista Dra. Mari Ferri. Protocolo de reset metabólico de 7 dias.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
