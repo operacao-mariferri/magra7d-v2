@@ -608,13 +608,13 @@
 </div>
 <script>
 (()=>{
- const cta=document.querySelector('.cta');
+ const ctas=[...document.querySelectorAll('.cta,.inline-cta')];
  const modal=document.getElementById('lead-modal');
  const form=document.getElementById('lead-form');
- if(!cta||!modal||!form)return;
- const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
- const open=()=>{modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>form.elements.name.focus(),40)};
- cta.addEventListener('click',e=>{e.preventDefault();open()});
+ if(!ctas.length||!modal||!form)return;
+ const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';delete modal.dataset.checkout};
+ const open=(checkout)=>{modal.dataset.checkout=checkout;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>form.elements.name.focus(),40)};
+ ctas.forEach(cta=>cta.addEventListener('click',e=>{e.preventDefault();open(cta.href)}));
  modal.querySelector('.lead-close').addEventListener('click',close);
  modal.addEventListener('click',e=>{if(e.target===modal)close()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close()});
@@ -626,7 +626,7 @@
   if(name.length<3){error.textContent='Informe o seu nome completo.';form.elements.name.focus();return}
   if(phone.length<10){error.textContent='Informe um telefone válido.';form.elements.phone.focus();return}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){error.textContent='Informe um e-mail válido.';form.elements.email.focus();return}
-  const checkout=new URL(cta.href);checkout.searchParams.set('name',name);checkout.searchParams.set('phone',phone);checkout.searchParams.set('email',email);
+  const checkout=new URL(modal.dataset.checkout||ctas[0].href);checkout.searchParams.set('name',name);checkout.searchParams.set('phone',phone);checkout.searchParams.set('email',email);
   window.location.href=checkout.toString();
  });
 })();
