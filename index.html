@@ -426,29 +426,7 @@
     j.src='https://s.api.wapptrack.com.br/t.js?id=5078df02-ff5e-400b-9f8e-1068d50d551c';document.head.appendChild(j);
   })();
 
-(()=>{
- const cta=document.querySelector('.cta');
- const modal=document.getElementById('lead-modal');
- const form=document.getElementById('lead-form');
- if(!cta||!modal||!form)return;
- const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
- const open=()=>{modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>form.elements.name.focus(),40)};
- cta.addEventListener('click',e=>{e.preventDefault();open()});
- modal.querySelector('.lead-close').addEventListener('click',close);
- modal.addEventListener('click',e=>{if(e.target===modal)close()});
- document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close()});
- form.elements.phone.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);if(v.length>6)v=v.length===11?`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`:`(${v.slice(0,2)}) ${v.slice(2,6)}-${v.slice(6)}`;else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;e.target.value=v});
- form.addEventListener('submit',e=>{
-  e.preventDefault();
-  const data=new FormData(form),name=String(data.get('name')||'').trim(),phone=String(data.get('phone')||'').replace(/\D/g,''),email=String(data.get('email')||'').trim();
-  const error=document.getElementById('lead-error');
-  if(name.length<3){error.textContent='Informe o seu nome completo.';form.elements.name.focus();return}
-  if(phone.length<10){error.textContent='Informe um telefone válido.';form.elements.phone.focus();return}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){error.textContent='Informe um e-mail válido.';form.elements.email.focus();return}
-  const checkout=new URL(cta.href);checkout.searchParams.set('name',name);checkout.searchParams.set('phone',phone);checkout.searchParams.set('email',email);
-  window.location.href=checkout.toString();
- });
-})();
+
 </script>
 </head><body>
 <div class="topline" aria-label="Black 2026, Magra 7D, inscrições abertas"><div class="topline-track"><span>BLACK 2026  •  <b>Magra 7D</b>  •  Inscrições abertas</span><span aria-hidden="true">BLACK 2026  •  <b>Magra 7D</b>  •  Inscrições abertas</span></div></div>
@@ -628,4 +606,29 @@
     </form>
   </div>
 </div>
+<script>
+(()=>{
+ const cta=document.querySelector('.cta');
+ const modal=document.getElementById('lead-modal');
+ const form=document.getElementById('lead-form');
+ if(!cta||!modal||!form)return;
+ const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
+ const open=()=>{modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>form.elements.name.focus(),40)};
+ cta.addEventListener('click',e=>{e.preventDefault();open()});
+ modal.querySelector('.lead-close').addEventListener('click',close);
+ modal.addEventListener('click',e=>{if(e.target===modal)close()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close()});
+ form.elements.phone.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);if(v.length>6)v=v.length===11?`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`:`(${v.slice(0,2)}) ${v.slice(2,6)}-${v.slice(6)}`;else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;e.target.value=v});
+ form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const data=new FormData(form),name=String(data.get('name')||'').trim(),phone=String(data.get('phone')||'').replace(/\D/g,''),email=String(data.get('email')||'').trim();
+  const error=document.getElementById('lead-error');
+  if(name.length<3){error.textContent='Informe o seu nome completo.';form.elements.name.focus();return}
+  if(phone.length<10){error.textContent='Informe um telefone válido.';form.elements.phone.focus();return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){error.textContent='Informe um e-mail válido.';form.elements.email.focus();return}
+  const checkout=new URL(cta.href);checkout.searchParams.set('name',name);checkout.searchParams.set('phone',phone);checkout.searchParams.set('email',email);
+  window.location.href=checkout.toString();
+ });
+})();
+</script>
 </body></html>
