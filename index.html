@@ -364,7 +364,7 @@
 
 /* Microinterações e transições da campanha */
 .topline{overflow:hidden;white-space:nowrap;justify-content:flex-start}
-.topline-track{display:inline-flex;min-width:max-content;animation:toplineMarquee 24s linear infinite}
+.topline-track{display:inline-flex;min-width:max-content;animation:toplineMarquee 16s linear infinite}
 .topline-track span{display:inline-block;padding-right:5.5rem}
 .hero-logo .logo,.hero-logo .with,.hero-logo .black-chip{opacity:0;animation:heroTextIn .65s cubic-bezier(.2,.75,.25,1) forwards}
 .hero-logo .with{animation-delay:.16s}.hero-logo .black-chip{animation-delay:.30s}
@@ -392,6 +392,15 @@
 @keyframes offerPop{0%{opacity:0;transform:translateY(14px) scale(.94)}70%{transform:translateY(-3px) scale(1.03)}100%{opacity:1;transform:none}}
 @keyframes swipeIn{from{opacity:0;transform:scaleX(0) rotate(-3deg)}to{opacity:1;transform:scaleX(1) rotate(-3deg)}}
 @media(prefers-reduced-motion:reduce){.topline-track,.hero-logo .logo,.hero-logo .with,.hero-logo .black-chip,.portrait img{animation:none!important;opacity:1!important}.scroll-reveal{opacity:1!important;transform:none!important;transition:none!important}.social.is-revealed .comment{animation:none!important;opacity:1!important;transform:none!important}.offersec.is-revealed .installments,.offersec.is-revealed .pink-swipe{animation:none!important}.cta:hover:after,.inline-cta:hover:after{animation:none!important}}
+
+/* CTA principal: destaque controlado para o primeiro botão */
+.cta.primary-cta{animation:primaryCtaPulse 2.8s ease-in-out infinite;box-shadow:0 0 0 1px rgba(202,255,34,.42),0 0 22px rgba(202,255,34,.18)}
+.cta.primary-cta:hover{animation:none;transform:translateY(-3px);box-shadow:0 0 0 2px rgba(202,255,34,.55),0 12px 32px rgba(202,255,34,.28)}
+.cta.primary-cta .arrow{display:inline-block;animation:primaryArrow 1.8s ease-in-out infinite}
+.cta.primary-cta:hover .arrow{animation:none}
+@keyframes primaryCtaPulse{0%,100%{box-shadow:0 0 0 1px rgba(202,255,34,.38),0 0 18px rgba(202,255,34,.14)}50%{box-shadow:0 0 0 2px rgba(202,255,34,.58),0 0 30px rgba(202,255,34,.28)}}
+@keyframes primaryArrow{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+@media(prefers-reduced-motion:reduce){.cta.primary-cta{animation:none!important}.cta.primary-cta .arrow{animation:none!important}}
 </style>
 <!-- Photo URLs in the education sections reference assets observed at https://www.magra7d.mariferri.com.br/ on 2026-10-31. A local fallback image is bundled for offline use. --></head><body>
 <div class="topline" aria-label="Black 2026, Magra 7D, inscrições abertas"><div class="topline-track"><span>BLACK 2026  •  <b>Magra 7D</b>  •  Inscrições abertas</span><span aria-hidden="true">BLACK 2026  •  <b>Magra 7D</b>  •  Inscrições abertas</span></div></div>
@@ -552,5 +561,7 @@
  },{threshold:.16,rootMargin:'0px 0px -8% 0px'});
  targets.forEach(el=>io.observe(el));
 })();
+
+(()=>{const first=document.querySelector('.cta');if(first)first.classList.add('primary-cta');})();
 </script>
 </body></html>
