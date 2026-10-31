@@ -93,6 +93,20 @@
 .reset-card .reset-icon{height:56px;width:56px;display:grid;place-items:center;background:#caff22;color:#111;border-radius:14px;font-size:29px}
 .reset-card h3{font-size:23px;line-height:1.14;font-weight:900;margin:2px 0 0;letter-spacing:-.03em}
 .reset-card p{font-size:14px;line-height:1.58;color:#d6cbd5;margin:0}
+@media(min-width:741px){
+.cta-neon{position:relative;isolation:isolate;z-index:0;animation:neonCtaPulse 2.8s ease-in-out infinite}
+.cta-neon:before{content:"";position:absolute;inset:-4px;border-radius:inherit;background:conic-gradient(from 0deg,transparent 0deg,transparent 55deg,#e81c7d 105deg,#caff22 165deg,transparent 220deg,transparent 360deg);z-index:-1;animation:neonBorderSweep 2.8s linear infinite;filter:blur(.2px)}
+.reset-benefits .reset-card{opacity:0;transform:translateY(28px) scale(.975)}
+.reset-benefits.is-visible .reset-card{animation:pillarReveal .7s cubic-bezier(.2,.75,.25,1) forwards}
+.reset-benefits.is-visible .reset-card:nth-child(1){animation-delay:.08s}
+.reset-benefits.is-visible .reset-card:nth-child(2){animation-delay:.24s}
+.reset-benefits.is-visible .reset-card:nth-child(3){animation-delay:.40s}
+.reset-benefits.is-visible .reset-card:nth-child(4){animation-delay:.56s}
+}
+@keyframes neonBorderSweep{to{transform:rotate(360deg)}}
+@keyframes neonCtaPulse{0%,100%{box-shadow:inset 0 -3px 0 rgba(43,73,0,.23),0 10px 28px rgba(159,255,0,.24)}50%{box-shadow:inset 0 -3px 0 rgba(43,73,0,.23),0 10px 34px rgba(232,28,125,.34),0 0 18px rgba(202,255,34,.2)}}
+@keyframes pillarReveal{to{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){.cta-neon{animation:none!important}.cta-neon:before{animation:none!important}.reset-benefits .reset-card,.reset-benefits.is-visible .reset-card{animation:none!important;opacity:1;transform:none}}
 .reset-controls{display:none}
 .reset-label{font-size:11px;letter-spacing:.12em;font-weight:800;color:#e81c7d}
 .belly-band{background:radial-gradient(circle at 0 70%,#610b35,transparent 55%),#0e0a0f;color:#fff;padding:0;overflow:hidden}
@@ -254,7 +268,7 @@
 <main>
 <section class="main-pitch" id="inicio"><div class="container pitch-content"><p class="premise">Você não falhou nas dietas.<strong>As dietas falharam com você.</strong></p><h1 class="headline">Perca até <span>4 kg em 7 dias</span> sem dieta maluca, sem academia obrigatória e sem passar fome.</h1><p class="subtitle">O <strong>Magra 7D</strong> é um desafio online com a nutricionista Mari Ferri para ajudar você a organizar sua rotina e buscar resultados com orientação — <strong>sem academia obrigatória e sem passar fome.</strong></p>
 <ul class="benefits"><li><span aria-hidden="true" class="check">✓</span>7 dias de conteúdo intensivo</li><li><span aria-hidden="true" class="check">✓</span>1 live por dia com a Dra. Mari Ferri</li><li><span aria-hidden="true" class="check">✓</span>Material de preparação 5 dias antes</li><li><span aria-hidden="true" class="check">✓</span>Estratégias detox e jejum com orientação</li><li><span aria-hidden="true" class="check">✓</span>Acesso ao conteúdo por 1 ano</li></ul>
-<a class="cta" href="https://pay.hotmart.com/J98590202L?off=lossxz9g" rel="noopener noreferrer" target="_blank">QUERO PARTICIPAR <span aria-hidden="true" class="arrow">→</span></a><p class="secure"><span class="lock">🔒</span> Pagamento pela Hotmart  •  100% online</p><p class="small-note">A campanha apresenta possibilidade de perder até 4 kg em 7 dias. Resultados dependem de fatores individuais e não são garantidos.</p>
+<a class="cta cta-neon" href="https://pay.hotmart.com/J98590202L?off=lossxz9g" rel="noopener noreferrer" target="_blank">QUERO PARTICIPAR <span aria-hidden="true" class="arrow">→</span></a><p class="secure"><span class="lock">🔒</span> Pagamento pela Hotmart  •  100% online</p><p class="small-note">A campanha apresenta possibilidade de perder até 4 kg em 7 dias. Resultados dependem de fatores individuais e não são garantidos.</p>
 </div></section>
 <section class="social" id="depoimentos"><div class="container social-inner"><p class="section-eyebrow">Depoimentos reais • prints da equipe</p><h2>Elas viveram o desafio — <span>e olha o que contaram.</span></h2><p class="social-dek">Mensagens de participantes de desafios e conteúdos anteriores da Mari Ferri. Você pode abrir os prints para conferir cada relato.</p><div class="comments"><article class="comment"><div aria-hidden="true" class="avatar">A</div><div class="comment-content"><span class="person">Participante • relato 01</span><p>“Primeira vez que vejo uma profissional ver exames com tanta atenção, muito obrigada Mari... parece um sonho isso.”</p><span class="comment-context">Acompanhamento cuidadoso</span></div><button aria-label="Ver print original do depoimento 01" class="view-proof" data-alt="Print original do depoimento 01" data-src="assets/depo-01.webp" type="button"><span aria-hidden="true">▣</span><span>Ver print</span></button></article>
 <article class="comment"><div aria-hidden="true" class="avatar">A</div><div class="comment-content"><span class="person">Participante • relato 02</span><p>“Bom dia! Foi maravilhoso ontem. Estou aguardando chegar a minha vez! Parabéns por compartilhar seus conhecimentos!”</p><span class="comment-context">Aulas e conhecimento</span></div><button aria-label="Ver print original do depoimento 02" class="view-proof" data-alt="Print original do depoimento 02" data-src="assets/depo-02.webp" type="button"><span aria-hidden="true">▣</span><span>Ver print</span></button></article>
@@ -406,6 +420,16 @@
  document.getElementById('resetPrev')?.addEventListener('click',()=>go(active-1));
  document.getElementById('resetNext')?.addEventListener('click',()=>go(active+1));
  track.addEventListener('scroll',()=>{if(mq.matches){active=Math.max(0,Math.min(slides.length-1,Math.round(track.scrollLeft/Math.max(1,track.clientWidth))));if(count)count.textContent=`${String(active+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`}}, {passive:true});
+})();
+
+(()=>{
+ const pillars=document.querySelector('.reset-benefits');
+ if(!pillars)return;
+ if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){pillars.classList.add('is-visible');return;}
+ const reveal=new IntersectionObserver(entries=>{
+  if(entries.some(entry=>entry.isIntersecting)){pillars.classList.add('is-visible');reveal.disconnect();}
+ },{threshold:.22});
+ reveal.observe(pillars);
 })();
 </script>
 </body></html>
