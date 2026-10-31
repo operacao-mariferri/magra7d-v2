@@ -416,6 +416,12 @@
 @keyframes leadDialogIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 @media(max-width:560px){.lead-dialog{padding:26px 20px;border-radius:18px}.lead-modal{padding:14px}}
 @media(prefers-reduced-motion:reduce){.lead-dialog{animation:none}.lead-submit{transition:none}}
+
+/* Depoimentos com print real visível */
+.comment.has-proof-preview{display:grid;grid-template-columns:126px minmax(0,1fr) auto;align-items:center;gap:16px;padding:12px}
+.comment.has-proof-preview .avatar{display:none}
+.comment-proof-preview{display:block;width:126px;height:154px;object-fit:contain;object-position:center;border:1px solid #eee0e6;border-radius:10px;background:#f7f0f3;box-shadow:0 4px 14px rgba(56,25,32,.08)}
+@media(max-width:720px){.comment.has-proof-preview{grid-template-columns:88px minmax(0,1fr) auto;gap:10px;padding:10px}.comment-proof-preview{width:88px;height:122px}.comment p{font-size:13px}.view-proof{min-width:62px;padding:8px 5px}}
 </style>
 <!-- Photo URLs in the education sections reference assets observed at https://www.magra7d.mariferri.com.br/ on 2026-10-31. A local fallback image is bundled for offline use. --><!-- TrackServer Hub - instalação first-party -->
 <script>
@@ -628,6 +634,23 @@
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){error.textContent='Informe um e-mail válido.';form.elements.email.focus();return}
   const checkout=new URL(modal.dataset.checkout||ctas[0].href);checkout.searchParams.set('name',name);checkout.searchParams.set('phone',phone);checkout.searchParams.set('email',email);
   window.location.href=checkout.toString();
+ });
+})();
+</script>
+
+<script>
+(()=>{
+ document.querySelectorAll('.comment').forEach(card=>{
+  const trigger=card.querySelector('.view-proof');
+  if(!trigger||!trigger.dataset.src)return;
+  const image=document.createElement('img');
+  image.className='comment-proof-preview';
+  image.alt=trigger.dataset.alt||'Print original do depoimento';
+  image.loading='lazy';
+  image.decoding='async';
+  image.src=trigger.dataset.src;
+  card.insertBefore(image,card.querySelector('.comment-content'));
+  card.classList.add('has-proof-preview');
  });
 })();
 </script>
