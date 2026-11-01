@@ -46,6 +46,92 @@ summary{font-weight:700;cursor:pointer;min-height:24px}
 .lead-modal.open{display:grid}.lead-dialog{position:relative;width:min(100%,470px);padding:28px 22px;border:1px solid rgba(200,255,26,.38);border-radius:22px;background:linear-gradient(145deg,#1d1722,#0d0c11);box-shadow:0 22px 80px rgba(0,0,0,.52);animation:leadDialogIn .3s ease-out both}
 .lead-dialog h2{margin:0 28px 8px;color:#fff}.lead-dialog>p{margin:0 0 20px;color:var(--mut);font-size:14px}.lead-close{position:absolute;right:12px;top:8px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:#fff;font-size:25px;cursor:pointer}.lead-form{display:grid;gap:12px}.lead-form label{display:grid;gap:5px;color:#fff;font-size:13px;font-weight:700}.lead-form input{width:100%;padding:12px 13px;border:1px solid #ffffff2e;border-radius:10px;background:#09090d;color:#fff;font:inherit;outline:none}.lead-form input:focus{border-color:var(--lime);box-shadow:0 0 0 3px #c8ff1a22}.lead-submit{width:100%;min-height:48px;padding:13px 16px;border:0;border-radius:999px;background:var(--lime);color:#0b0b0b;font:800 1rem/1 system-ui,sans-serif;cursor:pointer}.lead-error{min-height:1.2em;margin:0;color:#ff8abb;font-size:12px}.lead-privacy{margin:0!important;color:#9f969e!important;font-size:11px!important;line-height:1.4;text-align:center}.lead-close:hover{background:#ffffff18;color:var(--lime)}@keyframes leadDialogIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 @media(max-width:560px){.rail figure{flex-basis:82%}.rail figure img{height:230px}}
+
+/* Desktop premium usando o retrato e a marca já presentes no redesign atual */
+@media(min-width:741px){
+  .top{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(0,54%) minmax(0,46%);
+    align-items:stretch;
+    gap:0;
+    min-height:390px;
+    padding:0;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 12% 45%,rgba(113,8,54,.88),transparent 48%),
+      linear-gradient(112deg,#4d092e 0%,#170d17 56%,#0e0c12 100%);
+    border-bottom:3px solid var(--lime);
+  }
+  .top>div{
+    grid-column:1;
+    grid-row:1;
+    position:relative;
+    z-index:3;
+    align-self:center;
+    padding:42px clamp(24px,3vw,58px) 42px max(calc((100vw - 1110px)/2),40px);
+  }
+  .top b{
+    display:block;
+    font-size:clamp(58px,6.4vw,98px);
+    line-height:.96;
+    letter-spacing:-.085em;
+    font-weight:900;
+    white-space:nowrap;
+  }
+  .top .small{
+    margin-top:16px;
+    color:#f4eaf0;
+    font-size:clamp(12px,1.05vw,15px);
+    line-height:1.45;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:750;
+  }
+  .top img{
+    grid-column:2;
+    grid-row:1;
+    display:block;
+    justify-self:stretch;
+    align-self:stretch;
+    width:100%;
+    max-width:none;
+    height:390px;
+    border-radius:0;
+    object-fit:cover;
+    object-position:50% 24%;
+    background:#171119;
+    z-index:1;
+  }
+  .top:after{
+    content:"";
+    position:absolute;
+    z-index:2;
+    top:0;
+    bottom:0;
+    left:54%;
+    width:9%;
+    pointer-events:none;
+    background:linear-gradient(90deg,#170d17 0%,rgba(23,13,23,.74) 23%,rgba(23,13,23,.16) 72%,transparent 100%);
+  }
+  .strip{
+    padding:12px 18px;
+    font-size:14px;
+    letter-spacing:.08em;
+  }
+}
+@media(min-width:741px) and (max-width:1100px){
+  .top{
+    grid-template-columns:minmax(0,52%) minmax(0,48%);
+    min-height:340px;
+  }
+  .top>div{
+    padding-left:34px;
+    padding-right:22px;
+  }
+  .top b{font-size:clamp(52px,6.2vw,70px)}
+  .top img{height:340px}
+}
 </style>
 <!-- TrackServer Hub - instalação first-party -->
 <script>
