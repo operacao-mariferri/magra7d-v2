@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><link as="image" fetchpriority="high" href="assets/mari-top.webp" rel="preload"/>
+<head><link as="image" fetchpriority="high" href="/assets/mari-top.webp" rel="preload"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#101013" name="theme-color"/>
@@ -783,6 +783,25 @@
 #depoimentos .view-proof span {font-size:inherit!important;line-height:inherit!important;}
 
 @media(max-width:740px){#sobre-mari .authority-grid{grid-template-columns:minmax(0,1fr)!important}}
+
+/* Performance e robustez mobile: preserva todos os elementos no DOM. */
+html,body{overflow-x:clip}
+.social,.truth-block,.reset-benefits,.belly-band,.method-block,.science-block,.module-block,.details,.authority,.faq,.footer{content-visibility:auto;contain-intrinsic-size:1px 700px}
+@media(max-width:740px){
+  /* O conteúdo da primeira dobra continua visível no telemóvel. */
+  .main-pitch .benefits{display:flex!important}
+  /* Uma coluna evita texto ilegível em ecrãs estreitos. */
+  #depoimentos .comments{columns:1;column-gap:0}
+  #depoimentos .comment{width:100%;padding:14px 13px;gap:10px}
+  #depoimentos .comment p{font-size:13px;line-height:1.45}
+  #depoimentos .person{font-size:12px}
+  #depoimentos .comment-context{font-size:10px}
+}
+@media(max-width:360px){
+  .container{width:calc(100% - 28px)}
+  .hero-logo{padding-left:0;padding-right:0}
+  .cta{font-size:18px;padding-inline:12px}
+}
 </style>
 <!-- Photo URLs in the education sections reference assets observed at https://www.magra7d.mariferri.com.br/ on 2026-10-31. A local fallback image is bundled for offline use. --><style>
 .small-note{font-size:12px!important;line-height:1.5!important;color:#cfc5ce!important}
