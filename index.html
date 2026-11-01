@@ -431,6 +431,50 @@
 .comment.has-proof-preview .comment-proof-preview{display:block;width:100%;height:300px;object-fit:contain;object-position:center;background:#f7f0f3;border:0;border-radius:10px;box-shadow:none}
 @media(max-width:980px){.comments{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.comments{grid-template-columns:1fr;gap:14px}.comment.has-proof-preview{height:280px}.comment.has-proof-preview .comment-proof-preview{height:254px}}
+
+/* Corrige o painel direito da seção da especialista: mantém foto e biografia lado a lado em tablets */
+#sobre-mari .authority-grid{
+  display:grid!important;
+  grid-template-columns:minmax(170px,.78fr) minmax(0,1.22fr)!important;
+  gap:clamp(16px,3.5vw,42px)!important;
+  align-items:stretch!important;
+}
+#sobre-mari .authority-grid>img{
+  display:block;
+  width:100%!important;
+  max-width:300px!important;
+  height:100%!important;
+  min-height:280px;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  align-self:stretch;
+}
+#sobre-mari .authority-grid>div{
+  display:flex!important;
+  flex-direction:column;
+  justify-content:center;
+  box-sizing:border-box;
+  width:100%;
+  min-width:0;
+  min-height:280px;
+  padding:clamp(18px,3vw,34px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+  opacity:1!important;
+  visibility:visible!important;
+}
+#sobre-mari .authority-grid>div .section-eyebrow{margin-bottom:12px}
+#sobre-mari .authority-grid>div h2{font-size:clamp(25px,3.2vw,42px);margin-bottom:14px}
+#sobre-mari .authority-grid>div p{font-size:clamp(13px,1.35vw,15px);line-height:1.6;margin-bottom:12px}
+#sobre-mari .authority-more{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}
+#sobre-mari .authority-more li{padding:10px 11px;font-size:12px}
+@media(max-width:560px){
+  #sobre-mari .authority-grid{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}
+  #sobre-mari .authority-grid>img{width:min(280px,100%)!important;height:auto!important;min-height:0;aspect-ratio:4/5;margin-inline:auto}
+  #sobre-mari .authority-grid>div{min-height:0;padding:22px}
+  #sobre-mari .authority-more{grid-template-columns:1fr}
+}
 </style>
 <!-- Photo URLs in the education sections reference assets observed at https://www.magra7d.mariferri.com.br/ on 2026-10-31. A local fallback image is bundled for offline use. --><!-- TrackServer Hub - instalação first-party -->
 <script>
