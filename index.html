@@ -423,13 +423,14 @@
 .comment-proof-preview{display:block;width:126px;height:154px;object-fit:contain;object-position:center;border:1px solid #eee0e6;border-radius:10px;background:#f7f0f3;box-shadow:0 4px 14px rgba(56,25,32,.08)}
 @media(max-width:720px){.comment.has-proof-preview{grid-template-columns:88px minmax(0,1fr) auto;gap:10px;padding:10px}.comment-proof-preview{width:88px;height:122px}.comment p{font-size:13px}.view-proof{min-width:62px;padding:8px 5px}}
 
-/* Galeria de depoimentos: apenas os prints reais */
-.comments{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.comment.has-proof-preview{display:block;padding:12px;border-radius:16px}
+/* Galeria de depoimentos: dimensões compactas conforme o print de referência */
+.social-inner{width:min(940px,calc(100% - 32px));max-width:940px;margin-inline:auto}
+.comments{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;width:100%}
+.comment.has-proof-preview{display:block;box-sizing:border-box;min-width:0;height:326px;overflow:hidden;padding:12px;border-radius:16px}
 .comment.has-proof-preview .avatar,.comment.has-proof-preview .comment-content,.comment.has-proof-preview .view-proof{display:none}
-.comment.has-proof-preview .comment-proof-preview{width:100%;height:300px;object-fit:contain;object-position:center;background:#f7f0f3;border:0;border-radius:10px;box-shadow:none}
-@media(max-width:980px){.comments{grid-template-columns:repeat(2,minmax(0,1fr))}.comment.has-proof-preview .comment-proof-preview{height:330px}}
-@media(max-width:560px){.comments{grid-template-columns:1fr;gap:14px}.comment.has-proof-preview .comment-proof-preview{height:auto;max-height:none;object-fit:contain}}
+.comment.has-proof-preview .comment-proof-preview{display:block;width:100%;height:300px;object-fit:contain;object-position:center;background:#f7f0f3;border:0;border-radius:10px;box-shadow:none}
+@media(max-width:980px){.comments{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.comments{grid-template-columns:1fr;gap:14px}.comment.has-proof-preview{height:280px}.comment.has-proof-preview .comment-proof-preview{height:254px}}
 </style>
 <!-- Photo URLs in the education sections reference assets observed at https://www.magra7d.mariferri.com.br/ on 2026-10-31. A local fallback image is bundled for offline use. --><!-- TrackServer Hub - instalação first-party -->
 <script>
