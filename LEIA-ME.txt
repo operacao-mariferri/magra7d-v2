@@ -1,0 +1,22 @@
+Magra 7D — pacote de publicação | Dra. Mari Ferri
+
+CONTEÚDO
+- index.html: página responsiva finalizada.
+- public/assets/: 16 imagens usadas nesta página; todas em WebP.
+- .htaccess: cache para hospedagem Apache.
+- _headers: cache no formato de Netlify / Cloudflare Pages.
+
+PUBLICAÇÃO
+Envie index.html e o conteúdo de public/assets/ para a raiz pública do site (pasta assets/). Use apenas o arquivo de configuração compatível com sua hospedagem: .htaccess em Apache ou _headers em Netlify/Cloudflare Pages. Não é necessário usar ambos.
+
+RESPONSIVIDADE E MÍDIA
+A foto principal é carregada com preload e alta prioridade. Imagens secundárias usam lazy loading; prints dos depoimentos são carregados somente quando o visitante abre o respectivo print. Os 8 depoimentos e seus prints originais foram preservados. A grade é de 4 colunas no desktop e 2 no mobile. Nenhuma imagem foi recriada.
+
+CHECKOUT
+Os 7 botões externos apontam para o mesmo checkout Hotmart: https://pay.hotmart.com/J98590202L?off=lossxz9g. O destino foi verificado; uma transação de compra não foi realizada.
+
+DESEMPENHO
+As imagens já estão em WebP; foram mantidas sem recompressão para preservar a qualidade. O HTML mantém dimensões explícitas, preload da imagem principal, lazy loading nas imagens secundárias e cache de longo prazo para assets. A pontuação real do PageSpeed Insights depende da URL publicada e precisa ser medida após o deploy; não é possível garantir nota acima de 90 com base apenas em teste local.
+
+REVISÃO ANTES DA PUBLICAÇÃO
+Confira as autorizações de uso dos depoimentos, as condições vigentes da oferta e a conformidade das alegações de saúde e perda de peso. O checkout foi verificado como destino, mas a compra não foi testada em produção.
