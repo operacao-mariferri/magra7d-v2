@@ -475,6 +475,14 @@
   #sobre-mari .authority-grid>div{min-height:0;padding:22px}
   #sobre-mari .authority-more{grid-template-columns:1fr}
 }
+
+/* Cabeçalho em tela cheia: a foto ultrapassa o container até a borda direita */
+@media(min-width:741px){
+  .hero-inner .portrait{
+    right:calc((100vw - 100%)/-2);
+    width:calc(47% + (100vw - 100%)/2);
+  }
+}
 </style>
 <!-- Photo URLs in the education sections reference assets observed at https://www.magra7d.mariferri.com.br/ on 2026-10-31. A local fallback image is bundled for offline use. --><!-- TrackServer Hub - instalação first-party -->
 <script>
